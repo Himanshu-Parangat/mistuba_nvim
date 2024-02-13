@@ -24,6 +24,9 @@ vim.api.nvim_set_keymap('n', '<leader>h8', ':lua require("harpoon.ui").nav_file(
 vim.api.nvim_set_keymap('n', '<leader>h9', ':lua require("harpoon.ui").nav_file(9)<CR>', { noremap = true, silent = true })
 
 
+-- toggle undo tree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
 -- telescop 
 -- local builtin = require('telescope.builtin')
 -- vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
