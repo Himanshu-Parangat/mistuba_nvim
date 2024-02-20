@@ -1,5 +1,4 @@
 # 🌸🌸neovim config🌸🌸
-
 ![nvim preview](./assets/nvim_alpha_preview.png)
  
 
@@ -54,7 +53,7 @@ option dependencies
 mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
-
+=======
 
 ## setup 
 
@@ -89,6 +88,6 @@ rm -r ~/.local/share/nvim
 
 
 ## 🚧 note 🚧 
-This repository is currently under construction. 
+>>This repository is currently under construction. 
 Some features may be incomplete, and changes are expected to occur.
 Please check back later for updates.
