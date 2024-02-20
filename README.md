@@ -1,4 +1,4 @@
-# neovim config
+# 🌸🌸neovim config🌸🌸
 
 ![nvim preview](./assets/nvim_alpha_preview.png)
  
@@ -47,7 +47,7 @@ magick for image preview
 `sudo luarocks --lua-version=5.1 install magick`
 
 option dependencies
-`ripgrep & lazygit`
+`sudo pacman -S lua51 luajit ripgrep lazygit`
 
 ## backeup your config
 ``` bash 
@@ -59,13 +59,19 @@ mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ## setup 
 
 * create needed dir if not present 
-`mkdir -p ~/.config/nvim/lua && cd ~/.config/nvim/lua`
+```bash
+mkdir -p ~/.config/nvim/lua && cd ~/.config/nvim/lua
+```
 
 * clone repo
-`git clone --depth=1 https://github.com/Himanshu-Parangat/mistuba_nvim .`
+```bash
+git clone --depth=1 https://github.com/Himanshu-Parangat/mistuba_nvim ~/.config/nvim/lua
+```
 
 * require the new user config 
-`echo "require("mistuba_TAKANASHI")" >> hi.lua`
+```bash
+echo 'require("mistuba_TAKANASHI")' >> init.lua
+```
 
 ## removal 
 ```bash
@@ -78,3 +84,9 @@ rm -r ~/.local/share/nvim
 * setup which key
 * setup undo tree
 * setup statusline
+
+
+## 🚧 note 🚧 
+This repository is currently under construction. 
+Some features may be incomplete, and changes are expected to occur.
+Please check back later for updates.
