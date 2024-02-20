@@ -41,13 +41,40 @@
 
 ```
 
+## dependencey
+
+magick for image preview
+`sudo luarocks --lua-version=5.1 install magick`
+
+option dependencies
+`ripgrep & lazygit`
+
+## backeup your config
+``` bash 
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+```
 
 
+## setup 
+
+* create needed dir if not present 
+`mkdir -p ~/.config/nvim/lua && cd ~/.config/nvim/lua`
+
+* clone repo
+`git clone --depth=1 https://github.com/Himanshu-Parangat/mistuba_nvim .`
+
+* require the new user config 
+`echo "require("mistuba_TAKANASHI")" >> hi.lua`
+
+## removal 
+```bash
+rm -r ~/.config/nvim 
+rm -r ~/.local/share/nvim 
+```
 
 
-
-
-### todo 
+## todo 
 * setup which key
 * setup undo tree
 * setup statusline
