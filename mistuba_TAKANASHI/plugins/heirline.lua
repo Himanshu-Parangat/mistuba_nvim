@@ -116,8 +116,47 @@ return {
         },
     }
 
-        
-       local FileNameBlock = {
+      local SearchCount = {
+        condition = function()
+          return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
+        end,
+        init = function(self)
+          local ok, search = pcall(vim.fn.searchcount)
+          if ok and search.total then
+            self.search = search
+          end
+        end,
+        provider = function(self)
+          local search = self.search
+          return string.format("[%d/%d]", search.current, math.min(search.total, search.maxcount))
+        end,
+      } 
+      local MacroRec = {
+        condition = function()
+          return vim.fn.reg_recording() ~= "" and vim.o.cmdheight == 0
+        end,
+        provider = " ",
+        hl = { fg = "orange", bold = true },
+        utils.surround({ "[", "]" }, nil, {
+          provider = function()
+            return vim.fn.reg_recording()
+          end,
+          hl = { fg = "green", bold = true },
+        }),
+        update = {
+          "RecordingEnter",
+          "RecordingLeave",
+        }
+      }
+      vim.opt.showcmdloc = 'statusline'
+      local ShowCmd = {
+        condition = function()
+          return vim.o.cmdheight == 0
+        end,
+        provider = ":%3.5(%S%)",
+      }
+
+       local ComponnentBlock = {
            -- let's first set up some attributes needed by this component and it's children
            init = function(self)
                self.filename = vim.api.nvim_buf_get_name(0)
@@ -148,10 +187,10 @@ return {
                -- now, if the filename would occupy more than 1/4th of the available
                -- space, we trim the file path to its initials
                -- See Flexible Components section below for dynamic truncation
-               if not conditions.width_percent_below(#filename, 0.25) then
+               if not conditions.width_percent_below(#filename, 0.50) then
                    filename = vim.fn.pathshorten(filename)
                end
-               return filename
+               return filename 
            end,
            hl = { fg = utils.get_highlight("Directory").fg },
        }
@@ -187,17 +226,114 @@ return {
            end,
        }
        
-       -- let's add the children to our FileNameBlock component
-       FileNameBlock = utils.insert(FileNameBlock,
+
+      local Git = {
+        condition = conditions.is_git_repo,
+
+        init = function(self)
+          self.status_dict = vim.b.gitsigns_status_dict
+          self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
+        end,
+
+        hl = { fg = "orange" },
+
+
+        {   -- git branch name
+          provider = function(self)
+            return " " .. self.status_dict.head
+          end,
+          hl = { bold = true }
+        },
+        -- You could handle delimiters, icons and counts similar to Diagnostics
+        {
+          condition = function(self)
+            return self.has_changes
+          end,
+          provider = "("
+        },
+        {
+          provider = function(self)
+            local count = self.status_dict.added or 0
+            return count > 0 and ("+" .. count)
+          end,
+          hl = { fg = "green" },
+        },
+        {
+          provider = function(self)
+            local count = self.status_dict.removed or 0
+            return count > 0 and ("-" .. count)
+          end,
+          hl = { fg = "red" },
+        },
+        {
+          provider = function(self)
+            local count = self.status_dict.changed or 0
+            return count > 0 and ("~" .. count)
+          end,
+          hl = { fg = "orange" },
+        },
+        {
+          condition = function(self)
+            return self.has_changes
+          end,
+          provider = ")",
+        },
+      }
+
+
+      -- We're getting minimalists here!
+      local Ruler = {
+        -- %l = current line number
+        -- %L = number of lines in the buffer
+        -- %c = column number
+        -- %P = percentage through file of displayed window
+        -- provider = "%7(%l/%3L%):%2c %P",
+        -- provider = " %P",
+        provider = " %-05.10( %p%%",
+      }
+
+
+      -- I take no credits for this! :lion:
+      local ScrollBar ={
+        static = {
+          -- sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
+          -- Another variant, because the more choice the better.
+          sbar = { '🭶', '🭷', '🭸', '🭹', '🭺', '🭻' }
+        },
+        provider = function(self)
+          local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+          local lines = vim.api.nvim_buf_line_count(0)
+          local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
+          return string.rep(self.sbar[i], 2)
+        end,
+        hl = { fg = "black", bg = "pink" },
+      }
+
+      local padding = {
+        provider = " %-05.10( ",
+      }
+
+       -- let's add the children to our ComponnentBlock component
+       ComponnentBlock = utils.insert(ComponnentBlock,
+           ViMode,
+           MacroRec, 
+           SearchCount,
+           utils.insert(padding),
            FileIcon,
            utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
            FileFlags,
+           utils.insert(padding), 
+           Git, 
+           Ruler, 
+           -- ScrollBar,
            { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
+           -- { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
+           -- provider = " %-05.10( %p%%",
        )
 
         require("heirline").setup(
         {
-          statusline = {ViMode , FileNameBlock},
+          statusline = { ComponnentBlock},
           -- tabline = {},
           -- statuscolumn = {},
         }

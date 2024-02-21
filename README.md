@@ -70,7 +70,7 @@ git clone --depth=1 https://github.com/Himanshu-Parangat/mistuba_nvim ~/.config/
 
 * require the new user config 
 ```bash
-echo 'require("mistuba_TAKANASHI")' >> init.lua
+echo 'require("mistuba_TAKANASHI")' >> ~/.config/nvim/init.lua
 ```
 
 ## removal 
