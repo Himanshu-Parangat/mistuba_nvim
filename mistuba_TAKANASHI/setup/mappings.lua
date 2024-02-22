@@ -34,7 +34,7 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>')
 
-vim.keymap.set('n', '<leader>e', ':Neotree source=filesystem reveal=true position=current toggle<CR>')
+vim.keymap.set('n', '<leader>b', ':Neotree source=filesystem reveal=true position=current toggle<CR>')
 
 
 
