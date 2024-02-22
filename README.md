@@ -85,6 +85,8 @@ rm -r ~/.local/share/nvim
 * setup statusline
 * setup lsp
 * setup debug adapter
+* setup auto comment
+* setup org mode `(optional)` 
 
 
 ## 🚧 note 🚧 
