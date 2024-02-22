@@ -84,6 +84,8 @@ rm -r ~/.local/share/nvim
 * setup which key
 * setup undo tree
 * setup statusline
+* setup lsp
+* setup debug adapter
 
 
 ## 🚧 note 🚧 
