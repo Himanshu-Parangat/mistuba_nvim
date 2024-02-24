@@ -4,6 +4,3 @@ require('mistuba_TAKANASHI.setup.options')
 
 -- load lazy plugin
 require('mistuba_TAKANASHI.bootstrap')
-
--- greet
-print("hellow from mistuba")
