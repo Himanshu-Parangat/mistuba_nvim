@@ -19,17 +19,19 @@
 │   ├── plugins
 │   │   ├── 3rd-image.lua
 │   │   ├── alpha.lua
-│   │   ├── gitsigns.lua
+│   │   ├── Comment.lua
+│   │   ├── completions-lsp-bundel.lua
+│   │   ├── git-bundel.lua
 │   │   ├── harpoon.lua
 │   │   ├── heirline.lua
 │   │   ├── lazygit.lua
-│   │   ├── lsp-config.lua
 │   │   ├── neo-tree.lua
 │   │   ├── nvim-colorizer.lua
 │   │   ├── nvim-telescope.lua
 │   │   ├── nvim-treesitter.lua
 │   │   ├── nvim-ufo.lua
 │   │   ├── rose-pine.lua
+│   │   ├── trouble.lua
 │   │   ├── undotree.lua
 │   │   └── which-key.lua
 │   └── setup
@@ -37,7 +39,7 @@
 │       └── options.lua
 └── README.md
 
-5 directories, 22 files
+5 directories, 24 files
 
 ```
 
@@ -87,9 +89,6 @@ rm -r ~/.local/share/nvim
 * setup debug adapter
 * setup auto comment
 * setup org mode `(optional)` 
-
-
-## 🚧 note 🚧 
-This repository is currently under construction. 
-Some features may be incomplete, and changes are expected to occur.
-Please check back later for updates.
+* path completion 
+* dignostic adapter
+* fix dignostic icon
