@@ -221,7 +221,7 @@ return {
            hl = function()
                if vim.bo.modified then
                    -- use `force` because we need to override the child's hl foreground
-                   return { fg = "cyan", bold = true, force=true }
+                   return { fg = "pink", bold = true, force=true }
                end
            end,
        }
@@ -309,6 +309,25 @@ return {
         hl = { fg = "black", bg = "pink" },
       }
 
+      local LSPActive = {
+        condition = conditions.lsp_attached,
+        update = {'LspAttach', 'LspDetach'},
+
+        -- You can keep it simple,
+        -- provider = " [LSP]",
+
+        -- Or complicate things a bit and get the servers names
+        provider  = function()
+          local names = {}
+          for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+            table.insert(names, server.name)
+          end
+          return " [" .. table.concat(names, " ") .. "]"
+        end,
+        hl = { fg = "pink", bold = true },
+      }
+
+
       local padding = {
         provider = " %-05.10( ",
       }
@@ -316,15 +335,19 @@ return {
        -- let's add the children to our ComponnentBlock component
        ComponnentBlock = utils.insert(ComponnentBlock,
            ViMode,
-           MacroRec, 
+           MacroRec,
            SearchCount,
            utils.insert(padding),
            FileIcon,
            utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
            FileFlags,
-           utils.insert(padding), 
-           Git, 
-           Ruler, 
+           utils.insert(padding),
+           Git,
+           utils.insert(padding),
+           -- Diagnostics,
+           utils.insert(padding),
+           LSPActive,
+           Ruler,
            -- ScrollBar,
            { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
            -- { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
