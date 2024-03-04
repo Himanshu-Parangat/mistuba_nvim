@@ -1,4 +1,5 @@
 return{
+  -- seting up MASON
   {
     "williamboman/mason.nvim",
     config = function()
@@ -14,20 +15,13 @@ return{
       })
     end
   },
-    {
-    "hrsh7th/cmp-nvim-lsp",
-  },
+  -- Lua snip setup
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
     },
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -79,7 +73,6 @@ return{
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
  	end,
   },
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -105,5 +98,32 @@ return{
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {})
 
     end
-  }
+  },
+  -- CMP list
+  {
+    "hrsh7th/cmp-nvim-lsp",
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+  },
+  {
+    "hrsh7th/cmp-buffer",
+  },
+  {
+    "hrsh7th/cmp-path",
+    -- config = function ()
+    --   local cmp = require("cmp")
+    --
+    --   cmp.setup({
+    --     sources = {
+    --       {
+    --         name = 'path',
+    --         option = {
+    --           -- Options go into this table
+    --         },
+    --       },
+    --     },
+    --   })
+    -- end
+  },
 }
