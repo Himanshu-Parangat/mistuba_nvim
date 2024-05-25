@@ -86,5 +86,9 @@ rm -r ~/.local/share/nvim
 ## todo 
 * setup which key
 * setup undo tree
+* gitsigns keybinds
+* image preview
+* json schema 
+* code fold `ufo`
 * setup debug adapter
 * setup org mode `(optional)` 
