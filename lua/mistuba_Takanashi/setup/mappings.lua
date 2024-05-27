@@ -17,7 +17,6 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-keymap('n', '<leader>b', ':Neotree source=filesystem reveal=true position=current toggle<CR>', opts)
 
 -- clear higlight
 keymap("n", "<leader>th", ":nohl<CR>", opts)
@@ -51,8 +50,8 @@ keymap("n", "<S-Up>", ":resize +2<CR>", opts) -- decrease height
 keymap("n", "<S-Right>", ":vertical resize -2<CR>", opts) -- increase width
 
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-
+keymap("n", "<leader>B", ":Lex 30<cr>", opts)
+keymap('n', '<leader>b', ':Neotree source=filesystem reveal=true position=current toggle<CR>', opts)
 
 -- Navigate buffers
 keymap("n", "<leader>.", ":bnext<CR>", opts)
@@ -80,13 +79,18 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Terminal --
+-- direction = 'vertical' | 'horizontal' | 'tab' | 'float'
+keymap("n", "<leader>ch", ":ToggleTerm direction=horizontal<CR>", term_opts)
+keymap("n", "<leader>cv", ":ToggleTerm direction=vertical<CR>", term_opts)
+keymap("n", "<leader>ct", ":ToggleTerm direction=tab<CR>", term_opts)
+keymap("n", "<leader>cf", ":ToggleTerm direction=float<CR>", term_opts)
+
+
+
+-- leave insert_mode 
+keymap('t', '<esc>', [[<C-\><C-n>]], opts)
 -- Toggle virtual text display for the current line
  function Toggle_virtual_text()
      local current_line = vim.fn.line(".")
@@ -94,8 +98,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
      vim.api.nvim_buf_clear_namespace(bufnr, 0, current_line - 1, current_line)
  end
 
--- Map the function to a keybinding
-vim.api.nvim_set_keymap('n', '<Leader>t', ':lua Toggle_virtual_text()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>tl', ':lua Toggle_virtual_text()<CR>', { noremap = true, silent = true })
 
 
 
@@ -156,7 +159,7 @@ function Toggle_virtual_text()
         virtual_text = not config.virtual_text,
     })
 end
-vim.keymap.set('n', '<leader>vt', Toggle_virtual_text)
+vim.keymap.set('n', '<leader>tv', Toggle_virtual_text)
 
 
 
