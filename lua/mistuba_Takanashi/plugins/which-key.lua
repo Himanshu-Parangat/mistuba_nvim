@@ -126,6 +126,13 @@ return {
             l = "supress line dignostic"
 
         },
+        ["c"] = {
+          name = "console",
+            h= "Horizontal console",
+            v= "Vertical console",
+            t= "tab console",
+            f= "float console",
+        },
         b = "reveal filesystem",
         B = "reveal filesystem ex",
       },
@@ -134,6 +141,7 @@ return {
       ["+"] = "Increment charracter",
       ["-"] = "Decrement charracter",
     }, { prefix = "<leader>" })
+
 
     wk.register({
       ["<C-h>"] =  "Move to Left Window",
