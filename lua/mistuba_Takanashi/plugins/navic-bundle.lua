@@ -8,35 +8,36 @@ return {
   config = function ()
     local navbuddy = require("nvim-navbuddy")
     local actions = require("nvim-navbuddy.actions")
-    local custome_icons = {
-        --   פּ ﯟ   some other good icons
-        File = ' ',
-        Module = ' ',
-        Namespace = ' ',
-        Package = ' ',
-        Class = ' ',
-        Method = 'm ',
-        Property = ' ',
-        Field = ' ',
-        Constructor = ' ',
-        Enum = ' ',
-        Interface = ' ',
-        Function = "󰊕 ",
-        Variable = ' ',
-        Constant = ' ',
-        String = ' ',
-        Number = '󰎠 ',
-        Boolean = ' ',
-        Array = ' ',
-        Object = ' ',
-        Key = '󰌋 ',
-        Null = '󰟢 ',
-        EnumMember = ' ',
-        Struct = '󰌗 ',
-        Event = ' ',
-        Operator = ' ',
-        TypeParameter = ' '
-    }
+    local custome_icons = require("mistuba_Takanashi.icons.default")
+    -- local custome_icons = {
+    --     --   פּ ﯟ   some other good icons
+    --     File = ' ',
+    --     Module = ' ',
+    --     Namespace = ' ',
+    --     Package = ' ',
+    --     Class = ' ',
+    --     Method = 'm ',
+    --     Property = ' ',
+    --     Field = ' ',
+    --     Constructor = ' ',
+    --     Enum = ' ',
+    --     Interface = ' ',
+    --     Function = "󰊕 ",
+    --     Variable = ' ',
+    --     Constant = ' ',
+    --     String = ' ',
+    --     Number = '󰎠 ',
+    --     Boolean = ' ',
+    --     Array = ' ',
+    --     Object = ' ',
+    --     Key = '󰌋 ',
+    --     Null = '󰟢 ',
+    --     EnumMember = ' ',
+    --     Struct = '󰌗 ',
+    --     Event = ' ',
+    --     Operator = ' ',
+    --     TypeParameter = ' '
+    -- }
 
     navbuddy.setup {
         window = {
