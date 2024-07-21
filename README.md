@@ -10,15 +10,15 @@
 
 ~/.config/nvim/lua
 
-
 .
 ├── README.md
 ├── LICENSE.md
 ├── init.lua
-├── lazy-lock.json
 ├── lua
 │   └── mistuba_Takanashi
 │       ├── bootstrap.lua
+│       ├── icons
+│       │   └── default.lua
 │       ├── init.lua
 │       ├── lsp
 │       │   ├── init.lua
@@ -38,18 +38,23 @@
 │       │   ├── indent-blankline.lua
 │       │   ├── lsp-mason-bundle.lua
 │       │   ├── lualine.lua
+│       │   ├── navic-bundle.lua
 │       │   ├── neo-tree.lua
 │       │   ├── telescope.lua
+│       │   ├── toggleterm.lua
 │       │   ├── treesitter.lua
-│       │   └── trouble.lua
+│       │   ├── trouble.lua
+│       │   └── which-key.lua
 │       ├── setup
 │       │   ├── mappings.lua
 │       │   └── options.lua
 │       └── utils.lua
+├── lazy-lock.json
 └── assets
-    └── nvim_alpha_dashboard_preview.png
+    └── nvim_alpha_dashboard_preview.png
 
-8 directories, 29 files
+9 directories, 34 files
+
 
 ```
 
@@ -86,6 +91,7 @@ rm -r ~/.local/share/nvim
 ## todo 
 * setup which key
 * setup undo tree
+* better diff 
 * gitsigns keybinds
 * image preview
 * json schema 
