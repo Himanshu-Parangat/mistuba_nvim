@@ -123,7 +123,8 @@ return {
             s = "toggle signs",
             v = "toggle virtual text",
             d = "toggle dignostic",
-            l = "supress line dignostic"
+            l = "supress line dignostic",
+            c = "toggle special list charracter"
 
         },
         ["c"] = {

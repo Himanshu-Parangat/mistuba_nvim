@@ -132,3 +132,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank({higroup='Visual', timeout=500})
   end,
 })
+
+-----------------------------------------
+-- Toggle List Chars  
+-----------------------------------------
+
+
+function ToggleListChars()
+  local list_enabled = vim.api.nvim_get_option_value('list', {})
+  if list_enabled then
+    vim.api.nvim_set_option_value('list', false, {})
+    print("listchars disabled")
+  else
+    vim.api.nvim_set_option_value('list', true, {})
+    vim.opt.listchars = {
+        eol = '↲',
+        tab = '␣ ',
+        trail = '·',
+        extends = '❯',
+        precedes = '❮',
+        space = '·'
+      }
+
+    print("listchars enabled")
+  end
+end
+
+vim.keymap.set('n', '<leader>tc', ToggleListChars, { noremap = true, silent = true })
