@@ -89,6 +89,9 @@ rm -r ~/.local/share/nvim
 
 
 ## todo 
+* setup linting
+* setup parsing
+* setup spell check
 * setup which key
 * setup undo tree
 * better diff 
