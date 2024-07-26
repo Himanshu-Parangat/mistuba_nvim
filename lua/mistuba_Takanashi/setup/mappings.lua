@@ -17,6 +17,11 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- arrow blocker 
+keymap("n", "<Left>",  ":lua print('blocked use h')<CR>", opts)
+keymap("n", "<Down>",  ":lua print('blocked use j')<CR>", opts)
+keymap("n", "<Up>",    ":lua print('blocked use k')<CR>", opts)
+keymap("n", "<Right>", ":lua print('blocked use l')<CR>", opts)
 
 -- clear higlight
 keymap("n", "<leader>th", ":nohl<CR>", opts)
