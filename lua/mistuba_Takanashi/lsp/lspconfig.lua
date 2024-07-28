@@ -117,6 +117,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -----------------------
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- code fold capabilities 
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+require('ufo').setup()
+
 capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 
