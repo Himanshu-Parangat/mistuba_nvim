@@ -127,6 +127,12 @@ return {
             c = "toggle special list charracter"
 
         },
+        ["l"] = {
+          name = "linter",
+            l = "Toggle luacheck linting diagnostics",
+            p = "Toggle pylint linting diagnostics",
+            e = "Toggle eslint linting diagnostics",
+        },
         ["c"] = {
           name = "console",
             h= "Horizontal console",

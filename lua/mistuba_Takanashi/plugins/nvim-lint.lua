@@ -11,7 +11,6 @@ return {
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
-			markdown = { "markdownlint" },
 			lua = { "luacheck" },
 		}
 
@@ -40,28 +39,31 @@ return {
 		-- toggle linters --
 		--------------------
 
-		local pylint_ns = require("lint").get_namespace("luacheck")
+		_G.linter_state = true
 
-		vim.keymap.set("n", "<leader>lp", function()
-      local config = vim.diagnostic.config()
+		local function toggle_linter(linter_by_name)
+			_G.linter_state = not _G.linter_state
+
+			local lint_namespace = require("lint").get_namespace(linter_by_name)
+
 			vim.diagnostic.config({
-				virtual_text = true,
-				signs = true,
-        underline = true
-			}, pylint_ns)
-      print(vim.inspect(config))
-		end, { desc = "Trigger linting for current file" })
+				virtual_text = _G.linter_state,
+				signs = _G.linter_state,
+				underline = _G.linter_state,
+			}, lint_namespace)
 
+			local status = _G.linter_state and "enabled" or "disabled"
+			print("Linting " .. status)
+		end
 
-		vim.keymap.set("n", "<leader>lo", function()
-      local config = vim.diagnostic.config()
-			vim.diagnostic.config({
-				virtual_text = false,
-				signs = false,
-        underline = false
-			}, pylint_ns)
-      print(vim.inspect(config))
-		end, { desc = "Trigger linting for current file" })
+		local function toggle_linter_keymap(key, linter_name, desc)
+			vim.keymap.set("n", key, function()
+				toggle_linter(linter_name)
+			end, { desc = desc })
+		end
 
+		toggle_linter_keymap("<leader>ll", "luacheck", "Toggle luacheck linting diagnostics")
+		toggle_linter_keymap("<leader>lp", "pylint", "Toggle pylint linting diagnostics")
+		toggle_linter_keymap("<leader>le", "eslint", "Toggle eslint linting  diagnostics")
 	end,
 }
