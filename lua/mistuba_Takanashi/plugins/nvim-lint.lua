@@ -37,16 +37,30 @@ return {
 		end, { desc = "Trigger linting for current file" })
 
 		--------------------
-		-- pylint ----------
+		-- toggle linters --
 		--------------------
 
-		local pylint_ns = require("lint").get_namespace("pylint")
+		local pylint_ns = require("lint").get_namespace("luacheck")
 
 		vim.keymap.set("n", "<leader>lp", function()
+      local config = vim.diagnostic.config()
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+        underline = true
+			}, pylint_ns)
+      print(vim.inspect(config))
+		end, { desc = "Trigger linting for current file" })
+
+
+		vim.keymap.set("n", "<leader>lo", function()
+      local config = vim.diagnostic.config()
 			vim.diagnostic.config({
 				virtual_text = false,
 				signs = false,
+        underline = false
 			}, pylint_ns)
+      print(vim.inspect(config))
 		end, { desc = "Trigger linting for current file" })
 
 	end,
