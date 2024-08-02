@@ -1,10 +1,8 @@
 # 🌸🌸neovim config🌸🌸
 
-![nvim preview](./assets/nvim_alpha_dashboard_preview.png )
- 
+![nvim preview](./assets/nvim_alpha_dashboard_preview.png)
 
-
-* file structre
+- file structre
 
 ```bash
 
@@ -33,13 +31,18 @@
 │       │   ├── colorizer.lua
 │       │   ├── colorschemes.lua
 │       │   ├── comment.lua
+│       │   ├── conform.lua
 │       │   ├── gitsigns.lua
 │       │   ├── harpoon.lua
 │       │   ├── indent-blankline.lua
+│       │   ├── lazydev.lua
 │       │   ├── lsp-mason-bundle.lua
 │       │   ├── lualine.lua
 │       │   ├── navic-bundle.lua
 │       │   ├── neo-tree.lua
+│       │   ├── nvim-lint.lua
+│       │   ├── nvim-ufo.lua
+│       │   ├── statuscol.lua
 │       │   ├── telescope.lua
 │       │   ├── toggleterm.lua
 │       │   ├── treesitter.lua
@@ -53,7 +56,7 @@
 └── assets
     └── nvim_alpha_dashboard_preview.png
 
-9 directories, 34 files
+9 directories, 38 files
 
 
 ```
@@ -64,40 +67,40 @@ option dependencies
 `sudo pacman -S ripgrep`
 
 ## backeup your config
-``` bash 
+
+```bash
 mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
 
-## setup 
+## setup
 
-* create needed dir if not present 
+- create needed dir if not present
+
 ```bash
 mkdir -p ~/.config/nvim/ && cd ~/.config/nvim/
 ```
 
-* clone repo
+- clone repo
+
 ```bash
 git clone --depth=1 https://github.com/Himanshu-Parangat/mistuba_nvim ~/.config/nvim/
 ```
 
-## removal 
+## removal
+
 ```bash
-rm -r ~/.config/nvim 
-rm -r ~/.local/share/nvim 
+rm -r ~/.config/nvim
+rm -r ~/.local/share/nvim
 ```
 
+## todo
 
-## todo 
-* setup linting
-* setup parsing
-* setup spell check
-* setup which key
-* setup undo tree
-* better diff 
-* gitsigns keybinds
-* image preview
-* json schema 
-* code fold `ufo`
-* setup debug adapter
-* setup org mode `(optional)` 
+- setup spell check
+- setup undo tree
+- better diff
+- gitsigns keybinds
+- image preview
+- json schema
+- setup debug adapter
+- setup org mode `(optional)`
