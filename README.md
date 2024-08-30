@@ -96,6 +96,8 @@ rm -r ~/.local/share/nvim
 
 ## todo
 
+- rework on lsp keybind
+- rework completion key press 
 - setup spell check
 - setup undo tree
 - better diff
