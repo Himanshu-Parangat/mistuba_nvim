@@ -106,3 +106,4 @@ rm -r ~/.local/share/nvim
 - json schema
 - setup debug adapter
 - setup org mode `(optional)`
+- keymap "ds" conflict

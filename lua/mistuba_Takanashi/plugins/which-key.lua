@@ -37,7 +37,7 @@ return {
 			function()
 				require("which-key").show({ global = false })
 			end,
-			desc = "Buffer Local Keymaps (which-key)",
+			desc = "help",
 		},
 	},
 	config = function()
@@ -56,6 +56,10 @@ return {
 				{ "<leader>7", hidden = true },
 				{ "<leader>8", hidden = true },
 				{ "<leader>9", hidden = true },
+
+				-- wired description
+				{ "[[", hidden = true },
+				{ "]]", hidden = true },
 			},
 			{
 				-- grop keymap
@@ -75,6 +79,13 @@ return {
 				{ "<leader>//", icon = "󱀡 ",desc = "commet block" },
 				{ "<leader>+", icon = "󰧴 ",desc = "Inclement character" },
 				{ "<leader>-", icon = "󰧳 ",desc = "Decrement character" },
+				{ "<leader>m", icon = "󰉢 ",desc = "format Buffer in mode" },
+				{ "<leader>?", icon = " ",desc = "help" },
+				{ "<leader>B", icon = " ",desc = "split ex mode" },
+				{ "<leader>r", icon = "󰤌 ",desc = "rename refrence" },
+				{ "<leader>n", icon = " ",desc = "clear higlight" },
+				{ "<leader>d", icon = " ",desc = "document symbol" },
+
 			},
 		})
 	end,
