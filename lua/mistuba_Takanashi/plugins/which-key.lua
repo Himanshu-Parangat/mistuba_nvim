@@ -10,6 +10,9 @@ return {
 		preset = "classic",
 		notify = true,
 		-- sort = {"group", "local", "order", "alphanum", "mod" },
+		win = {
+			no_overlap = false,
+		},
 		replace = {
 			key = {
 				function(key)
@@ -55,85 +58,24 @@ return {
 				{ "<leader>9", hidden = true },
 			},
 			{
-				-- hide quick cycle
-				mode = { "n", "v" },
-				{ "<leader>,", hidden = true },
-				{ "<leader>.", hidden = true },
-			},
-			{
 				-- grop keymap
 				mode = { "n", "v" },
-				{ "<leader>s", group = "splits" },
+				{ "<leader>h", group = "harapoon", icon = " " },
+				{ "<leader>l", group = "linter", icon = "󰁨 " },
+				{ "<leader>c", group = "console", icon = " " },
+				{ "<leader>s", group = "splits", icon = " " },
 				{ "<leader>t", group = "tabs" },
-				{ "<leader>l", group = "linter" },
-				{ "<leader>c", group = "console" },
-				{ "<leader>h", group = "harpoon" },
+				{ "<leader>p", group = "telescope" },
 			},
 			{
 				-- added custome overwrite
-				mode = {"n","v"},
-				{"<leader>+", desc = "Increment charracter"},
-				{"<leader>-", desc = "Decrement charracter"},
+				mode = { "n", "v" },
 
-				{"<leader>b", desc = "reveal filesystem"},
-				{"<leader>B", desc = "reveal filesystem ex"},
-
-				{"<leader>/", desc = "commet line"},
-				{"<leader>//", desc = "commet block"},
-			}
+				{ "<leader>/", icon = "󱀡 ",  desc = "commet line" },
+				{ "<leader>//", icon = "󱀡 ",desc = "commet block" },
+				{ "<leader>+", icon = "󰧴 ",desc = "Inclement character" },
+				{ "<leader>-", icon = "󰧳 ",desc = "Decrement character" },
+			},
 		})
 	end,
 }
-
--- wk.register({
---   ["<leader>"] = {
---     ["s"] = {
---       name = "splits",
---         v = "Split Vertically",
---         h = "Split Horizontally",
---         e = "Make Split Windows Equal",
---         x = "Close Split Window",
---     },
---     ["t"] = {
---       name = "tabs",
---         o = "open new tab",
---         x = "close current tab",
---         n = "go to next tab",
---         p = "go to previous tab",
---         f = "move current buffer to new tab",
---
---         s = "toggle signs",
---         v = "toggle virtual text",
---         d = "toggle dignostic",
---         l = "supress line dignostic",
---         c = "toggle special list charracter"
---     },
---     ["l"] = {
---       name = "linter",
---         l = "Toggle luacheck linting diagnostics",
---         p = "Toggle pylint linting diagnostics",
---         e = "Toggle eslint linting diagnostics",
---     },
---     ["c"] = {
---       name = "console",
---         h= "Horizontal console",
---         v= "Vertical console",
---         t= "tab console",
---         f= "float console",
---     },
---     b = "reveal filesystem",
---     B = "reveal filesystem ex",
---   },
--- })
---
---
--- wk.register({
---   ["<C-h>"] =  "Move to Left Window",
---   ["<C-j>"] =  "Move to Window Below",
---   ["<C-k>"] =  "Move to Window Above",
---   ["<C-l>"] =  "Move to Right Window",
---  }, {
---   mode = "t",
---   prefix = "<leader>",
---   buffer = nil,
--- })

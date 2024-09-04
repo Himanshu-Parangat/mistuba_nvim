@@ -13,18 +13,18 @@ return {
 			local keymap = vim.keymap.set
 			keymap("n", "<leader>ha", function()
 				harpoon:list():add()
-			end)
+			end, {desc = "harpoon add current buffer"})
 			keymap("n", "<leader>ht", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
-			end)
+			end,{desc = "harpoon Toggle window"})
 
 			-- Toggle previous & next buffers stored within Harpoon list
 			keymap("n", "<leader>hp", function()
 				harpoon:list():prev()
-			end)
+			end,{desc = "harpoon previous buffer"})
 			keymap("n", "<leader>hn", function()
 				harpoon:list():next()
-			end)
+			end,{desc = "harpoon next buffer"})
 
 			-- harpoon navigation leader followed by 1 to 9
 			for i = 1, 9 do
@@ -56,7 +56,7 @@ return {
 
 			keymap("n", "<leader>hs", function()
 				toggle_telescope(harpoon:list())
-			end, { desc = "Open harpoon window" })
+			end, { desc = "harpoon toggle telescope" })
 		end,
 	},
 }

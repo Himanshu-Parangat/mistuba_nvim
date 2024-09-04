@@ -8,10 +8,10 @@ return{
       },
       config =function ()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files,{})
-        vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
-        vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
+        vim.keymap.set('n', '<leader>pf', builtin.find_files,{ desc = "project find"})
+        vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = "project grep search"})
+        vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = "project buffer search"})
+        vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = "project help tag search"})
       end
   }
 }
