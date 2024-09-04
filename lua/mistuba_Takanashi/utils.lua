@@ -142,17 +142,30 @@ function ToggleListChars()
 		print("listchars disabled")
 	else
 		vim.api.nvim_set_option_value("list", true, {})
+
 		vim.opt.listchars = {
+			tab = "␣␣", -- Use two ␣ symbols for tabs
 			eol = "↲",
-			tab = "␣ ",
-			trail = "·",
-			extends = "❯",
-			precedes = "❮",
+			nbsp = "^",
+			trail = "~",
+			extends = "⟩",
+			precedes = "⟨",
 			space = "·",
 		}
+
+		vim.opt.showbreak = "↪\\"
+
+		-- vim.opt.listchars = {
+		-- 	eol = "↲",
+		-- 	tab = "␣ ",
+		-- 	trail = "·",
+		-- 	extends = "❯",
+		-- 	precedes = "❮",
+		-- space = "•",
+		-- }
 
 		print("listchars enabled")
 	end
 end
 
-vim.keymap.set("n", "<leader>tc", ToggleListChars, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tc", ToggleListChars, { desc = "Toggle hidden characters", noremap = true, silent = true })
