@@ -75,17 +75,16 @@ return {
 				-- added custome overwrite
 				mode = { "n", "v" },
 
-				{ "<leader>/", icon = "󱀡 ",  desc = "commet line" },
-				{ "<leader>//", icon = "󱀡 ",desc = "commet block" },
-				{ "<leader>+", icon = "󰧴 ",desc = "Inclement character" },
-				{ "<leader>-", icon = "󰧳 ",desc = "Decrement character" },
-				{ "<leader>m", icon = "󰉢 ",desc = "format Buffer in mode" },
-				{ "<leader>?", icon = " ",desc = "help" },
-				{ "<leader>B", icon = " ",desc = "split ex mode" },
-				{ "<leader>r", icon = "󰤌 ",desc = "rename refrence" },
-				{ "<leader>n", icon = " ",desc = "clear higlight" },
-				{ "<leader>d", icon = " ",desc = "document symbol" },
-
+				{ "<leader>/", icon = "󱀡 ", desc = "commet line" },
+				{ "<leader>//", icon = "󱀡 ", desc = "commet block" },
+				{ "<leader>+", icon = "󰧴 ", desc = "Inclement character" },
+				{ "<leader>-", icon = "󰧳 ", desc = "Decrement character" },
+				{ "<leader>m", icon = "󰉢 ", desc = "format Buffer in mode" },
+				{ "<leader>?", icon = " ", desc = "help" },
+				{ "<leader>B", icon = " ", desc = "split ex mode" },
+				{ "<leader>r", icon = "󰤌 ", desc = "rename refrence" },
+				{ "<leader>n", icon = " ", desc = "clear higlight" },
+				{ "<leader>d", icon = " ", desc = "document symbol" },
 			},
 		})
 	end,
