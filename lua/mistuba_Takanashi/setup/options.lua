@@ -25,9 +25,10 @@ vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
-vim.opt.expandtab = true                        -- convert tabs to spaces
+vim.opt.expandtab = false                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation for autoindent or ">>" "<<"
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab (it only shown visually)
+vim.opt.softtabstop = 2                         -- Number of spaces per tab while editing
 vim.opt.cursorline = true                       -- highlight the current line where cursor is 
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true                  -- set relative numbered lines
@@ -46,11 +47,5 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"            -- auto go to (up or down) when 
 vim.cmd [[set iskeyword+=-,_]]                  -- treate hyphens and underscores as keyword
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
-
--- resore cursor position
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.api.nvim_command('silent! normal! g`"zv')
-  end,
-})
+-- save session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

@@ -10,6 +10,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+
+-------------------------------------------
+-- resore cursor position
+-------------------------------------------
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.api.nvim_command('silent! normal! g`"zv')
+  end,
+})
+
+
+
 -----------------------------------------
 -- Toggle List Chars
 -----------------------------------------
