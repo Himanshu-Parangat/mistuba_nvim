@@ -15,13 +15,16 @@
 ├── lua
 │   └── mistuba_Takanashi
 │       ├── bootstrap.lua
+│       ├── competion
+│       │   └── competion.lua
 │       ├── icons
-│       │   └── default.lua
+│       │   ├── default.lua
+│       │   └── listchars.lua
 │       ├── init.lua
 │       ├── lsp
 │       │   ├── init.lua
 │       │   ├── lsp_conf
-│       │   │   ├── jsonls.lua
+│       │   │   ├── jsonls.lua.template
 │       │   │   ├── lua_ls.lua
 │       │   │   └── pyright.lua
 │       │   └── lspconfig.lua
@@ -48,10 +51,10 @@
 │       │   ├── treesitter.lua
 │       │   ├── trouble.lua
 │       │   └── which-key.lua
-│       ├── setup
-│       │   ├── mappings.lua
-│       │   └── options.lua
-│       └── utils.lua
+│       └── setup
+│           ├── mappings.lua
+│           ├── options.lua
+│           └── utils.lua
 ├── lazy-lock.json
 └── assets
     └── nvim_alpha_dashboard_preview.png
