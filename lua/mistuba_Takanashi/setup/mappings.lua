@@ -193,3 +193,9 @@ end
 keymap("n", "<leader>tv", ":lua Toggle_virtual_text()<CR>", "toggle virtual text", opts)
 keymap("n", "<leader>ts", ":lua Toggle_signs()<CR>", "toggle diagnostic signs", opts)
 keymap("n", "<leader>tu", ":lua Toggle_underline()<CR>", "toggle diagnostic underline", opts)
+
+
+local utils = require("mistuba_Takanashi.setup.utils")
+
+
+vim.keymap.set("n", "<leader>tc", utils.toggleListChars, { desc = "Toggle hidden characters", noremap = true, silent = true })

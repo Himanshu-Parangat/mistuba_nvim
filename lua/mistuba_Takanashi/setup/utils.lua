@@ -10,25 +10,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-
 -------------------------------------------
 -- resore cursor position
 -------------------------------------------
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.api.nvim_command('silent! normal! g`"zv')
-  end,
+	pattern = { "*" },
+	callback = function()
+		vim.api.nvim_command('silent! normal! g`"zv')
+	end,
 })
-
-
 
 -----------------------------------------
 -- Toggle List Chars
 -----------------------------------------
 
-local toggleListChars = function ()
+local utils = {}
+
+function utils.toggleListChars()
 	local list_enabled = vim.api.nvim_get_option_value("list", {})
 	if list_enabled then
 		vim.api.nvim_set_option_value("list", false, {})
@@ -47,4 +46,4 @@ local toggleListChars = function ()
 end
 
 
-vim.keymap.set("n", "<leader>tc", toggleListChars, { desc = "Toggle hidden characters", noremap = true, silent = true })
+return utils
