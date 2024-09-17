@@ -46,6 +46,21 @@ function utils.toggleListChars()
 end
 
 
+------------
+-- line wrap
+------------
+
+local wrap_active = false
+function utils.toggle_wrap()
+    wrap_active = not wrap_active
+    if wrap_active then
+        vim.wo.wrap = true
+    else
+        vim.wo.wrap = false
+    end
+end
+
+
 ---------------------------------------------------
 -- Toggle virtual text display for the current line
 ---------------------------------------------------
