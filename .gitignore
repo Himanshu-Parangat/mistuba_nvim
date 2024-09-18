@@ -1,3 +1,4 @@
 lazy-lock.json
 .luarc.json
-./lua/mistuba_Takanashi/plugins/auto-session.lua
+lua/mistuba_Takanashi/plugins/nvim-lint.lua
+./lua/mistuba_Takanashi/setup/_utils.lua

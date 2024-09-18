@@ -101,6 +101,7 @@ local utils = require("mistuba_Takanashi.setup.utils")
 vim.keymap.set("n", "<leader>+", function() utils.cycleCharacter(1) end, { desc = "Toggle hidden characters", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>-", function() utils.cycleCharacter(-1) end, { desc = "Toggle hidden characters", noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>tw", utils.toggle_wrap, { desc = "Toggle line Wrap", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tc", utils.toggleListChars, { desc = "Toggle hidden characters", noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>tl", utils.supress_virtual_line_text, { desc = "Toggle hidden characters", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle diagnostic", noremap = true, silent = true })
