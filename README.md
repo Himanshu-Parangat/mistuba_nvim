@@ -110,3 +110,4 @@ rm -r ~/.local/share/nvim
 - setup debug adapter
 - setup org mode `(optional)`
 - keymap "ds" conflict
+- check for {{}} and CMP 
