@@ -97,6 +97,19 @@ rm -r ~/.config/nvim
 rm -r ~/.local/share/nvim
 ```
 
+## Features ✨
+
+> - **Completion**: auto-completions as you code, thanks to plugin `nvim-cmp`
+> - **LSP (Language Server Protocol)**: Full integration with LSP servers for features like go-to definition, hover info, and code actions. by `nvim-lspconfig`.
+> - **Which-key**: showing a helpful popup of all the available keybindings in the current context.
+> - **Themes**: A beautiful, Catppuccin theme 
+> - **Telescope**: Find files, buffers, and everything else `telescope.nvim` provides fast, fuzzy searching.
+> - **Harpoon**: Jump between your most-used files with ease. `Harpoon`
+> - **Indent Lines**: visual indent guides, using `indent-blankline.nvim`.
+> - **Code Folding**:collapse and expand sections of your code without ugly fold numbers.
+
+
+
 ## todo
 
 - rework on lsp keybind
