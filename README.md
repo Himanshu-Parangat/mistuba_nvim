@@ -107,6 +107,9 @@ rm -r ~/.local/share/nvim
 > - **Harpoon**: Jump between your most-used files with ease. `Harpoon`
 > - **Indent Lines**: visual indent guides, using `indent-blankline.nvim`.
 > - **Code Folding**:collapse and expand sections of your code without ugly fold numbers.
+> - **terminal toggle**: better toggle terminal  `toggleterm`
+> - **code fold** visual code fold using `ufo` using lsp backend.
+> - **auto comment**: context based comment toggle  
 
 
 
