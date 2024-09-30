@@ -108,3 +108,5 @@ vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle dia
 vim.keymap.set("n", "<leader>tv", utils.toggle_virtual_text, { desc = "Toggle virtual text", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ts", utils.toggle_signs, { desc = "Toggle diagnostic signs", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tu", utils.toggle_underline, { desc = "Toggle diagnostic underline", noremap = true, silent = true })
+-- telescope helper
+vim.keymap.set("n", "<leader>tg", utils.git_status, { desc = "git status", noremap = true, silent  = true})
