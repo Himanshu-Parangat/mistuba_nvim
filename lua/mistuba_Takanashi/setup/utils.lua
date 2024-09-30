@@ -169,4 +169,14 @@ function utils.cycleCharacter(step)
 	vim.api.nvim_set_current_line(line:sub(1, col - 1) .. new_char .. line:sub(col + 1))
 end
 
+---------------------
+-- check git files --
+---------------------
+
+function utils.git_status()
+	require("telescope.builtin").git_status({
+		prompt_title = "git files",
+	})
+end
+
 return utils
