@@ -127,3 +127,8 @@ rm -r ~/.local/share/nvim
 - setup org mode `(optional)`
 - keymap "ds" conflict
 - check for {{}} and CMP 
+
+## Improvement 
+
+- Highlight custome group 
+- Cursor appearance in insert mode
