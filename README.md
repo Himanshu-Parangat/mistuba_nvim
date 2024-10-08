@@ -111,6 +111,10 @@ rm -r ~/.local/share/nvim
 > - **code fold** visual code fold using `ufo` using lsp backend.
 > - **auto comment**: context based comment toggle  
 > - **cutome util functions**: toggle different feature
+> - **Alpha dashboard**: clean dashboard with ascii art
+> - **Lualine**: clean lualine with sensible information 
+> - **treesitter**: supprt for syntax highlight 
+> - **Navic bundle**: for context related symbol 
 
 
 ## todo
