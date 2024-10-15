@@ -66,8 +66,8 @@
 
 ## dependencey
 
-option dependencies
-`sudo pacman -S ripgrep`
+* option dependencies `ripgrep` `luarocks` `npm` `nerdfonts`
+* note: for [Wsl](https://learn.microsoft.com/en-us/windows/wsl) you will need [win32yank](https://github.com/equalsraf/win32yank)
 
 ## backeup your config
 
