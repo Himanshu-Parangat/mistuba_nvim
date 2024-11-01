@@ -103,7 +103,7 @@ vim.keymap.set("n", "<leader>-", function() utils.cycleCharacter(-1) end, { desc
 
 vim.keymap.set("n", "<leader>tw", utils.toggle_wrap, { desc = "Toggle line Wrap", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tc", utils.toggleListChars, { desc = "Toggle hidden characters", noremap = true, silent = true })
-vim.keymap.set("n", "<Leader>tl", utils.supress_virtual_line_text, { desc = "Toggle hidden characters", noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>tl", utils.supress_virtual_line_text, { desc = " toggle (supress) line vt", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle diagnostic", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tv", utils.toggle_virtual_text, { desc = "Toggle virtual text", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ts", utils.toggle_signs, { desc = "Toggle diagnostic signs", noremap = true, silent = true })
