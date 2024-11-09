@@ -131,6 +131,7 @@ rm -r ~/.local/share/nvim
 - setup org mode `(optional)`
 - keymap "ds" conflict
 - check for {{}} and CMP 
+- wsl clipboard resolution 
 
 ## Improvement 
 
