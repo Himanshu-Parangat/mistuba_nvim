@@ -133,6 +133,7 @@ rm -r ~/.local/share/nvim
 - check for {{}} and CMP 
 - wsl clipboard resolution 
 - add section for lsp and parser install using mason 
+- wsl and windows instruction 
 
 ## Improvement 
 
