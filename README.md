@@ -134,6 +134,7 @@ rm -r ~/.local/share/nvim
 - wsl clipboard resolution 
 - add section for lsp and parser install using mason 
 - wsl and windows instruction 
+- hl highlights fix for folds 
 
 ## Improvement 
 
