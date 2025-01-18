@@ -24,10 +24,11 @@ return {
 
 		local lint_augroup = vim.api.nvim_create_augroup("user-nvim-lint", { clear = true })
 
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			group = lint_augroup,
-			callback = lint_autocmd,
-		})
+	  -- auto trigger linting	
+		-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+		-- 	group = lint_augroup,
+		-- 	callback = lint_autocmd,
+		-- })
 
 		-- manually toggle
 		vim.keymap.set("n", "<leader>ll", function()
