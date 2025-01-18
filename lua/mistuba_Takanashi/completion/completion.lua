@@ -13,15 +13,19 @@ if not snip_status_ok then
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+local tail_col_cmp_ok, tailwindcss_colorizer_cmp = pcall(require, "tailwindcss-colorizer-cmp")
+if not tail_col_cmp_ok then
+	return
+end
 
+require("luasnip/loaders/from_vscode").lazy_load()
 
 --   פּ ﯟ   some other good icons
 local kind_icons = require("mistuba_Takanashi.icons.default")
 
 cmp.setup({
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		fields = { cmp.ItemField.Kind, cmp.ItemField.Abbr, cmp.ItemField.Menu },
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -35,7 +39,7 @@ cmp.setup({
 				look = "[look]",
 				path = "[path]",
 			})[entry.source.name]
-			return vim_item
+			return tailwindcss_colorizer_cmp.formatter(entry, vim_item)
 		end,
 	}, --
 })
@@ -46,7 +50,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 })
-
 
 cmp.setup({
 	snippet = {
@@ -64,12 +67,12 @@ cmp.setup({
 	},
 })
 
-
 cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
+		{ name = "tailwindcss-colorizer-cmp" },
 		{ name = "calc" },
 		{
 			name = "buffer",
@@ -103,7 +106,6 @@ cmp.setup({
 		},
 	}),
 })
-
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
