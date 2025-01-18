@@ -46,6 +46,25 @@ function utils.toggleListChars()
 end
 
 
+-------------------
+-- toggle lua line 
+-------------------
+
+local lualine_active = false
+function utils.toggle_lua_line()
+    lualine_active = not lualine_active
+    if lualine_active then
+				vim.opt.laststatus = 0
+				vim.opt.cmdheight = 0
+				require('lualine').hide()
+    else
+				vim.opt.laststatus = 2
+				vim.opt.cmdheight = 2
+		    require('lualine').hide({unhide=true})
+    end
+end
+
+
 ------------
 -- line wrap
 ------------
