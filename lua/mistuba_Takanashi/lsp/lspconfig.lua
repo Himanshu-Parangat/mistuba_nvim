@@ -170,7 +170,29 @@ mason.setup({
 
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
-	"stylua", -- Used to format Lua code
+
+	-- Formater
+	"black",
+	"isort",
+	"prettier",
+	"stylua",
+
+	-- Linter 
+  "eslint_d",
+  "luacheck",
+  "pylint",
+
+	--lsplsp
+  "jinja-lsp", -- "jinja_lsp"
+  "css-lsp",  -- "cssls" microsoft lsp for CSS/SCSS 
+  "emmet-language-server", -- "emmet_language_server" A language server for emmet.io.
+  "jinja-lsp", -- "jinja_lsp"
+  "json-lsp",  -- "jsonls",
+  "lua-language-server", -- "lua_ls",
+  "pyright",
+  "tailwindcss-language-server",
+	"tailwindcss",
+  "typescript-language-server", -- "ts_ls",
 })
 
 local mason_tool_installer = require("mason-tool-installer")
