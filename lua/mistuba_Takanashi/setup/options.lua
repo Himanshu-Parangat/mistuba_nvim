@@ -1,6 +1,5 @@
 -- :help options
 vim.opt.backup = false                          -- creates a backup file
--- vim.opt.clipboard = 'unnamedplus'            -- sync systemclipboard with nvim register
 vim.opt.cmdheight = 2                           -- more space in the bottom of neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 
@@ -49,3 +48,21 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- save session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- vim.opt.clipboard = 'unnamedplus'            -- sync systemclipboard with nvim register
+
+
+-- below example is for WSL (windows subsystem for linux) [uncoment to use clipboard in wsl] 
+
+-- vim.g.clipboard = {
+--     name = 'WslClipboard',
+--     copy = {
+--         ['+'] = 'clip.exe',
+--         ['*'] = 'clip.exe',
+--     },
+--     paste = {
+--         ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\\`", "\\\\\\`").replace("\\\"", "\\\\\\"))',
+--         ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("\\`", "\\\\\\`").replace("\\\"", "\\\\\\"))',
+--     },
+--     cache_enabled = 0,
+-- }
