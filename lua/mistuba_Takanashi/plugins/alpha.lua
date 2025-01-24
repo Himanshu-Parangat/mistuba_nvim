@@ -242,6 +242,22 @@ return {
         }
 
         require 'alpha'.setup(config)
+
+				vim.api.nvim_create_autocmd('User', {
+					pattern = 'AlphaReady',
+					callback = function()
+						vim.opt.cmdheight = 0 -- Hide the command line
+					end,
+				})
+
+				vim.api.nvim_create_autocmd('BufUnload', {
+					callback = function()
+						if vim.bo.filetype == 'alpha' then
+							vim.opt.cmdheight = 2 -- Restore the default command line height
+						end
+					end,
+				})
+
   end,
 }
 
