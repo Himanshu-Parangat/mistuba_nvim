@@ -243,17 +243,21 @@ return {
 
         require 'alpha'.setup(config)
 
+		    -- hide the cmdline and status line in dashboard
 				vim.api.nvim_create_autocmd('User', {
 					pattern = 'AlphaReady',
 					callback = function()
-						vim.opt.cmdheight = 0 -- Hide the command line
+				    vim.opt.laststatus = 0
+						vim.opt.cmdheight = 0
 					end,
 				})
 
+		    -- unhide  the cmdline and status line leaving dashboard
 				vim.api.nvim_create_autocmd('BufUnload', {
 					callback = function()
 						if vim.bo.filetype == 'alpha' then
-							vim.opt.cmdheight = 2 -- Restore the default command line height
+				      vim.opt.laststatus = 2
+							vim.opt.cmdheight = 2
 						end
 					end,
 				})
