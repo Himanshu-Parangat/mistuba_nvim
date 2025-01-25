@@ -121,20 +121,20 @@ rm -r ~/.local/share/nvim
 
 - rework on lsp keybind
 - rework completion key press 
-- setup spell check
 - setup undo tree
 - better diff
-- gitsigns keybinds
 - image preview
 - json schema
-- setup debug adapter
 - setup org mode `(optional)`
-- keymap "ds" conflict
-- check for {{}} and CMP 
-- wsl clipboard resolution 
-- add section for lsp and parser install using mason 
 - wsl and windows instruction 
 - hl highlights fix for folds 
+
+## fixing
+- gitsigns keybinds conflict with harpoon
+- move to fugitive
+
+- debug adapter test
+
 
 ## Improvement 
 
