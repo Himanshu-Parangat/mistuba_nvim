@@ -132,9 +132,7 @@ rm -r ~/.local/share/nvim
 ## fixing
 - gitsigns keybinds conflict with harpoon
 - move to fugitive
-
 - debug adapter test
-
 
 ## Improvement 
 
