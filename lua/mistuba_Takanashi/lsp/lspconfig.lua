@@ -125,6 +125,8 @@ local servers = {
 	tailwindcss = {},
 	jinja_lsp = {},
 	cssls = {},
+	dockerls = {},
+	docker_compose_language_service = {},
 
 	lua_ls = {
 		settings = {
@@ -193,6 +195,9 @@ vim.list_extend(ensure_installed, {
   "tailwindcss-language-server",
 	"tailwindcss",
   "typescript-language-server", -- "ts_ls",
+
+	"dockerls",
+	"docker_compose_language_service",
 })
 
 local mason_tool_installer = require("mason-tool-installer")
@@ -207,4 +212,18 @@ mason_lspconfig.setup({
 			require("lspconfig")[server_name].setup(server)
 		end,
 	},
+})
+
+---------------------------------------
+-- additional docker-compose lsp setup 
+---------------------------------------
+
+local ft_lsp_group = vim.api.nvim_create_augroup("ft_lsp_group",{clear=true})
+vim.api.nvim_create_autocmd({"BufReadPost","BufNewFile"},{
+    pattern={"docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml"},
+    group = ft_lsp_group,
+    desc = "Fix the issue where the LSP does not start with docker-compose.",
+    callback = function ()
+        vim.opt.filetype = "yaml.docker-compose"
+    end
 })
