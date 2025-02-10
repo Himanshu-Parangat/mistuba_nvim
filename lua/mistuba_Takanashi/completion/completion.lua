@@ -35,6 +35,7 @@ cmp.setup({
 				nvim_lsp = "[Lsp]",
 				buffer = "[Buffer]",
 				nvim_lua = "[nvim]",
+				render_markdown = "[markdown]",
 				calc = "[calc]",
 				look = "[look]",
 				path = "[path]",
@@ -72,6 +73,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
+		{ name = 'render-markdown' },
 		{ name = "tailwindcss-colorizer-cmp" },
 		{ name = "calc" },
 		{
