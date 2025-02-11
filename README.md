@@ -129,6 +129,8 @@ rm -r ~/.local/share/nvim
 - setup org mode `(optional)`
 - wsl and windows instruction 
 - hl highlights fix for folds 
+- update README file tree
+- add `wiki` section
 
 ## fixing
 - gitsigns keybinds conflict with harpoon
