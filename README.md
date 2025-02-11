@@ -115,6 +115,7 @@ rm -r ~/.local/share/nvim
 > - **Lualine**: clean lualine with sensible information 
 > - **treesitter**: supprt for syntax highlight 
 > - **Navic bundle**: for context related symbol 
+> - **Markdown preview** : added support for terminal markdown preview.
 
 
 ## todo
