@@ -136,6 +136,7 @@ rm -r ~/.local/share/nvim
 - gitsigns keybinds conflict with harpoon
 - move to fugitive
 - debug adapter test
+- wsl clipboard is copying weierd artifacts `Γöé┬á┬á Γöé┬á┬á`
 
 ## Improvement 
 
