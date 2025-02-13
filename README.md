@@ -142,3 +142,4 @@ rm -r ~/.local/share/nvim
 
 - Highlight custome group 
 - Cursor appearance in insert mode
+- support for go `linting` and `formatting`
