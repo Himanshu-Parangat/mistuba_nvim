@@ -198,4 +198,35 @@ function utils.git_status()
 	})
 end
 
+-----------------------
+-- check git commits --
+-----------------------
+
+function utils.git_commits()
+	require("telescope.builtin").git_commits({
+		prompt_title = "git commits",
+	})
+end
+
+------------------------
+-- check git branches --
+------------------------
+
+function utils.git_branches()
+	require("telescope.builtin").git_branches({
+		prompt_title = "git branches",
+	})
+end
+
+
+---------------------
+-- check git stash --
+---------------------
+
+function utils.git_stash()
+	require("telescope.builtin").git_stash({
+		prompt_title = "git stash",
+	})
+end
+
 return utils
