@@ -208,6 +208,16 @@ function utils.git_commits()
 	})
 end
 
+------------------------------
+-- check git buffer commits --
+------------------------------
+
+function utils.git_bcommits()
+	require("telescope.builtin").git_bcommits({
+		prompt_title = "git buffer commits",
+	})
+end
+
 ------------------------
 -- check git branches --
 ------------------------
