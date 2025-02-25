@@ -110,4 +110,7 @@ vim.keymap.set("n", "<leader>tv", utils.toggle_virtual_text, { desc = "Toggle vi
 vim.keymap.set("n", "<leader>ts", utils.toggle_signs, { desc = "Toggle diagnostic signs", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tu", utils.toggle_underline, { desc = "Toggle diagnostic underline", noremap = true, silent = true })
 -- telescope helper
-vim.keymap.set("n", "<leader>tg", utils.git_status, { desc = "git status", noremap = true, silent  = true})
+vim.keymap.set("n", "<leader>gs", utils.git_status, { desc = "git status", noremap = true, silent  = true})
+vim.keymap.set("n", "<leader>gc", utils.git_commits, { desc = "git commits", noremap = true, silent  = true})
+vim.keymap.set("n", "<leader>gb", utils.git_branches, { desc = "git branches", noremap = true, silent  = true})
+vim.keymap.set("n", "<leader>gh", utils.git_stash, { desc = "git stash", noremap = true, silent  = true})
