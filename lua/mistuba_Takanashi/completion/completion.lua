@@ -35,9 +35,14 @@ cmp.setup({
 				nvim_lsp = "[Lsp]",
 				buffer = "[Buffer]",
 				nvim_lua = "[nvim]",
-				render_markdown = "[markdown]",
+				nvim_lsp_signature_help_cmp = "[signature]",
+				['vim-dadbod-completion'] = '[DB]',
+				['render-markdown']='[markdown]',
+				['cmp-tw2css']='[tailwind2css]',
+				css_variables = '[css var]',
+				tailwindcss_colorizer_cmp='[tailwindcss]',
 				calc = "[calc]",
-				look = "[look]",
+				look = "[dict]",
 				path = "[path]",
 			})[entry.source.name]
 			return tailwindcss_colorizer_cmp.formatter(entry, vim_item)
@@ -55,11 +60,15 @@ cmp.setup({
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip`
+			-- luasnip.lsp_expand(args.body) -- For `luasnip`
+			require("luasnip").lsp_expand(args.body)
 			-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 		end,
 	},
 })
+
+require("mini.pairs").setup()
+
 
 cmp.setup({
 	experimental = {
@@ -73,8 +82,12 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
+    { name = 'nvim_lsp_signature_help' },
 		{ name = 'render-markdown' },
+		{ name = 'vim-dadbod-completion'},
 		{ name = "tailwindcss-colorizer-cmp" },
+		{ name = 'cmp-tw2css' },
+		{ name = 'css-variables' },
 		{ name = "calc" },
 		{
 			name = "buffer",
@@ -111,10 +124,39 @@ cmp.setup({
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-down>"] = cmp.mapping.scroll_docs(4),
+		["<C-up>"] = cmp.mapping.scroll_docs(-4),
+		["<C-]>"] = cmp.mapping.abort(),
+		["<C-[>"] = cmp.mapping.abort(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
+
+		["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif require("luasnip").expand_or_jumpable() then
+        require("luasnip").expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif require("luasnip").jumpable(-1) then
+        require("luasnip").jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
 	}),
 })

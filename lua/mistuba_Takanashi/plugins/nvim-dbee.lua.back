@@ -1,0 +1,37 @@
+return {
+  "kndndrj/nvim-dbee",
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+  },
+  build = function()
+    require("dbee").install()
+  end,
+  config = function()
+    require("dbee").setup(--[[optional config]])
+
+		-- DB keymaps
+		local dbee = require("dbee")
+
+		vim.keymap.set("n", "<leader>do", dbee.open,   { desc = "DB: Open UI", noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>dc", dbee.close,  { desc = "DB: Close UI", noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>dt", dbee.toggle, { desc = "DB: Toggle UI", noremap = true, silent = true })
+
+		-- Run current query (assumes visual or current line)
+		vim.keymap.set("n", "<leader>dr", function()
+			local query = vim.fn.getline(".")
+			dbee.execute(query)
+		end, { desc = "DB: Run current line query", noremap = true, silent = true })
+
+		vim.keymap.set("v", "<leader>dr", function()
+			local query = table.concat(vim.fn.getline("'<", "'>"), "\n")
+			dbee.execute(query)
+		end, { desc = "DB: Run selected query", noremap = true, silent = true })
+
+		-- Store result helpers
+		vim.keymap.set("n", "<leader>ds", function()
+			dbee.store("buffer")
+		end, { desc = "DB: Store result in buffer", noremap = true, silent = true })
+
+  end,
+}
+

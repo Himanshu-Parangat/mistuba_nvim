@@ -14,3 +14,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("mistuba_Takanashi.plugins")
+require("vim._core.ui2").enable({})

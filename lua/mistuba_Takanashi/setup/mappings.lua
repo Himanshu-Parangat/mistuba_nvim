@@ -115,3 +115,11 @@ vim.keymap.set("n", "<leader>gC", utils.git_commits, { desc = "git all commits",
 vim.keymap.set("n", "<leader>gc", utils.git_bcommits, { desc = "git buffer commits", noremap = true, silent  = true})
 vim.keymap.set("n", "<leader>gb", utils.git_branches, { desc = "git branches", noremap = true, silent  = true})
 vim.keymap.set("n", "<leader>gS", utils.git_stash, { desc = "git stash", noremap = true, silent  = true})
+
+
+vim.keymap.set(
+	{ "n", "x" },
+	"<leader>fs",
+	function() require("rip-substitute").sub() end,
+	{ desc = " rip substitute" }
+)

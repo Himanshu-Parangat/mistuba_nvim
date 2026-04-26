@@ -2,48 +2,81 @@
 -- diagnostic
 -----------------------
 
--- Change the Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
 local config = {
-	-- disable virtual text
 	virtual_text = true,
-	-- show signs
 	signs = {
-		active = signs,
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.HINT] = "󰠠",
+			[vim.diagnostic.severity.INFO] = "",
+		},
 	},
 	update_in_insert = true,
 	underline = true,
 	severity_sort = true,
 	float = {
 		focusable = false,
-		style = "minimal",
 		border = "rounded",
 		source = "always",
 		header = "",
 		prefix = "",
+		style = "default",
 	},
-}
 
-vim.diagnostic.config(config)
+}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
-
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = "rounded",
 })
 
+vim.diagnostic.config(config)
+
+-- Change the Diagnostic symbols in the sign column (gutter)
+-- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+-- for type, icon in pairs(signs) do
+-- 	local hl = "DiagnosticSign" .. type
+-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+-- end
+--
+-- local config = {
+-- 	-- disable virtual text
+-- 	virtual_text = true,
+-- 	-- show signs
+-- 	signs = {
+-- 		active = signs,
+-- 	},
+-- 	update_in_insert = true,
+-- 	underline = true,
+-- 	severity_sort = true,
+-- 	float = {
+-- 		focusable = false,
+-- 		border = "rounded",
+-- 		source = "always",
+-- 		header = "",
+-- 		prefix = "",
+-- 		-- style = "minimal",
+-- 		style = "default",
+-- 	},
+-- }
+--
+-- vim.diagnostic.config(config)
+--
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 	border = "rounded",
+-- })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+-- 	border = "rounded",
+-- })
+
 -- diagnostic keymap
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+-- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -----------------------
 -- auto cmd for lsp
@@ -127,6 +160,7 @@ local servers = {
 	cssls = {},
 	dockerls = {},
 	docker_compose_language_service = {},
+	mdx_analyzer = {},
 
 	lua_ls = {
 		settings = {
@@ -183,6 +217,7 @@ vim.list_extend(ensure_installed, {
   "eslint_d",
   "luacheck",
   "pylint",
+	"astro",
 
 	--lsplsp
   "jinja-lsp", -- "jinja_lsp"
@@ -198,7 +233,22 @@ vim.list_extend(ensure_installed, {
 
 	"dockerls",
 	"docker_compose_language_service",
+	"mdx_analyzer"
 })
+
+vim.filetype.add({
+  extension = {
+    mdx = "mdx",
+  },
+})
+
+require("luasnip").filetype_extend("astro", {
+  "html",
+  "typescript",
+  "javascript",
+})
+
+
 
 local mason_tool_installer = require("mason-tool-installer")
 mason_tool_installer.setup({ ensure_installed = ensure_installed })

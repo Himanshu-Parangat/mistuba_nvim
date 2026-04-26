@@ -168,20 +168,13 @@ return {
 			color = { fg = colors.green, gui = "bold" },
 		})
 
-		-- ins_right {
-		--   'fileformat',
-		--   upper = true,
-		--   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-		--   color = {fg = colors.green, gui = 'bold'}
-		-- }
 
-		ins_right({
+		ins_right {
 			-- Lsp server name .
 			function()
-				-- local msg = '🚧 No Active Lsp'
 				local msg = " "
-				local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-				local clients = vim.lsp.get_active_clients()
+				local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+				local clients = vim.lsp.get_clients()
 				if next(clients) == nil then
 					return msg
 				end
@@ -193,9 +186,9 @@ return {
 				end
 				return msg
 			end,
-			icon = " LSP:",
-			color = { fg = colors.lushpink, gui = "bold" },
-		})
+			icon = ' LSP:',
+			color = { fg = colors.lushpink, gui = 'bold' },
+		}
 
 		lualine.setup(config)
 

@@ -8,7 +8,7 @@ return {
 					mode = "background",
 					names = true,
 				},
-				css = { rgb_fn = true }, -- Enable parsing rgb(...) functions in css.
+				css = { rgb_fn = true, hsl_fn = true }, -- Enable parsing rgb(...) functions in css.
 			})
 		end,
 	},

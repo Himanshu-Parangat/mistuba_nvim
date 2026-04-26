@@ -7,6 +7,8 @@ return {
 			-- "onsails/lspkind.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"roginfarrer/cmp-css-variables",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-calc",
@@ -22,11 +24,15 @@ return {
 	},
 	{
 		"roobert/tailwindcss-colorizer-cmp.nvim",
+		"jcha0713/cmp-tw2css",
 		-- optionally, override the default options:
 		config = function()
 			require("tailwindcss-colorizer-cmp").setup({
 				color_square_width = 2,
 			})
+			require('cmp-tw2css').setup({ {
+				fallback = true
+			} })
 		end,
 	},
 }

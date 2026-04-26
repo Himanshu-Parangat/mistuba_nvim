@@ -35,4 +35,5 @@ return {
 			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
+	vim.api.nvim_set_hl(0, "NotificationInfo", { bg = "None", fg = "#f9a8d4" })
 }

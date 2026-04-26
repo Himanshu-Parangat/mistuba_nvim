@@ -228,15 +228,32 @@ return {
             opts = {
                 margin = 5,
                 setup = function()
-                    vim.api.nvim_create_autocmd('DirChanged', {
-                        pattern = '*',
-                        group = "alpha_temp",
-                        callback = function()
-                            cdir = vim.fn.getcwd()
-                            require('alpha').redraw()
-                            vim.cmd('AlphaRemap')
-                        end,
-                    })
+                    -- vim.api.nvim_create_autocmd('DirChanged', {
+                    --     pattern = '*',
+                    --     group = "alpha_temp",
+                    --     callback = function()
+                    --         cdir = vim.fn.getcwd()
+                    --         require('alpha').redraw()
+                    --         vim.cmd('AlphaRemap')
+                    --     end,
+                    -- })
+
+										vim.api.nvim_create_autocmd('DirChanged', {
+											pattern = '*',
+											group = vim.api.nvim_create_augroup("alpha_temp", { clear = true }),
+											callback = function()
+												-- only redraw if alpha buffer still exists
+												for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+													if vim.bo[buf].filetype == "alpha" then
+														cdir = vim.fn.getcwd()
+														require("alpha").redraw()
+														vim.cmd("AlphaRemap")
+														return
+													end
+												end
+											end,
+										})
+
                 end,
             },
         }

@@ -68,6 +68,7 @@ return {
 				{ "<leader>l", group = "linter", icon = "󰁨 " },
 				{ "<leader>c", group = "console", icon = " " },
 				{ "<leader>s", group = "splits", icon = " " },
+				{ "<leader>m", group = "Mark", icon = " " },
 				{ "<leader>t", group = "tabs" },
 				{ "<leader>p", group = "telescope" },
 			},
@@ -85,6 +86,13 @@ return {
 				{ "<leader>r", icon = "󰤌 ", desc = "rename refrence" },
 				{ "<leader>n", icon = " ", desc = "clear higlight" },
 				{ "<leader>d", icon = " ", desc = "document symbol" },
+			},
+			{
+				mode = { "n", "v" },
+				{ "<leader>ms", icon = " ", desc = "Mark set" },
+				{ "<leader>md", icon = " ", desc = "Delete Annotate & unmark" },
+				{ "<leader>ma", icon = " " },
+				{ "<leader>mD", icon = " " },
 			},
 		})
 	end,

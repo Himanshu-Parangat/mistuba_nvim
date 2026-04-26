@@ -10,22 +10,26 @@ return {
 	config = function()
 		require("render-markdown").setup({
 			code = {
-				enabled = true,
-				sign = "language",
+				-- sign = "language",
 				-- style = "normal",
-				width = "block",
-				left_pad = 2,
-				right_pad = 4,
-				border = "thin",
-				above = "",
-				below = "",
-				-- above = "▄",
-				-- below = "▀",
+				enabled = true,
+				sign = true,
+				-- width = "block",
+				width="full",
+				-- language_pad = 2,
+				-- left_pad = 2,
+				-- right_pad = 2,
+				left_margin = 1,
+				-- right_margin = 1,
+				border = "thick",
+			  above = '▄',
+        below = '▀',
+				language_border = '█',
 			},
 			heading = {
 				width = "block",
 				left_pad = 2,
-				right_pad = 4,
+				right_pad = 2,
 				backgrounds = {
 					"RenderMarkdownH1Bg",
 					"RenderMarkdownH2Bg",
@@ -57,7 +61,7 @@ return {
 			},
 			vim.treesitter.language.register("markdown", "gitcommit"),
 		})
-		vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#120012", blend = 45 })
+		-- vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#120012", blend = 45 })
 
 		vim.api.nvim_set_hl(0, "RenderMarkdownH1Bg", { bg = "#271a34", fg = "none", blend = 45 })
 		vim.api.nvim_set_hl(0, "RenderMarkdownH2Bg", { bg = "#270b1d", fg = "none", blend = 45 })
